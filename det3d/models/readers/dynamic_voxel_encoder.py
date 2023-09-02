@@ -34,7 +34,7 @@ def voxelization_virtual(points, pc_range, voxel_size):
     virtual_point = points[virtual_points_mask] 
 
     padded_points = torch.zeros(len(points), 22, device=points.device, dtype=points.dtype)
-
+    
     # real points will occupy channels 0 to 4 and -1 
     padded_points[:len(real_points), :5] = real_points
     padded_points[:len(real_points), -1] = 1 

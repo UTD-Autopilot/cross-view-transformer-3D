@@ -137,10 +137,11 @@ def main():
     if args.seed is not None:
         logger.info("Set random seed to {}".format(args.seed))
         set_random_seed(args.seed)
+    
+    datasets = [build_dataset(cfg.data.train)]
+    print(datasets[0])
 
     model = build_detector(cfg.model, train_cfg=cfg.train_cfg, test_cfg=cfg.test_cfg)
-
-    datasets = [build_dataset(cfg.data.train)]
 
     if len(cfg.workflow) == 2:
         datasets.append(build_dataset(cfg.data.val))

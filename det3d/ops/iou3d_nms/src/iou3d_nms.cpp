@@ -10,6 +10,7 @@ All Rights Reserved 2019-2020.
 #include <cuda.h>
 #include <cuda_runtime_api.h>
 #include "iou3d_nms.h"
+#include <time.h>
 
 #define CHECK_CUDA(x) do { \
   if (!x.type().is_cuda()) { \

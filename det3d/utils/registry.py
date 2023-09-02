@@ -62,6 +62,7 @@ def build_from_cfg(cfg, registry, default_args=None):
     if torchie.is_str(obj_type):
         obj_cls = registry.get(obj_type)
         if obj_cls is None:
+            print(registry)
             raise KeyError(
                 "{} is not in the {} registry".format(obj_type, registry.name)
             )

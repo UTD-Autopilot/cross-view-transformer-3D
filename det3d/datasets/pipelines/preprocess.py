@@ -27,17 +27,17 @@ def drop_arrays_by_name(gt_names, used_classes):
 @PIPELINES.register_module
 class Preprocess(object):
     def __init__(self, cfg=None, **kwargs):
-        self.shuffle_points = cfg.shuffle_points
+        self.shuffle_points = cfg['shuffle_points']
         self.min_points_in_gt = cfg.get("min_points_in_gt", -1)
         
-        self.mode = cfg.mode
+        self.mode = cfg['mode']
         if self.mode == "train":
-            self.global_rotation_noise = cfg.global_rot_noise
-            self.global_scaling_noise = cfg.global_scale_noise
+            self.global_rotation_noise = cfg['global_rot_noise']
+            self.global_scaling_noise = cfg['global_scale_noise']
             self.global_translate_std = cfg.get('global_translate_std', 0)
-            self.class_names = cfg.class_names
-            if cfg.db_sampler != None:
-                self.db_sampler = build_dbsampler(cfg.db_sampler)
+            self.class_names = cfg['class_names']
+            if 'db_sampler' in cfg:
+                self.db_sampler = build_dbsampler(cfg['db_sampler'])
             else:
                 self.db_sampler = None 
                 
@@ -162,10 +162,10 @@ class Preprocess(object):
 class Voxelization(object):
     def __init__(self, **kwargs):
         cfg = kwargs.get("cfg", None)
-        self.range = cfg.range
-        self.voxel_size = cfg.voxel_size
-        self.max_points_in_voxel = cfg.max_points_in_voxel
-        self.max_voxel_num = [cfg.max_voxel_num, cfg.max_voxel_num] if isinstance(cfg.max_voxel_num, int) else cfg.max_voxel_num
+        self.range = cfg['range']
+        self.voxel_size = cfg['voxel_size']
+        self.max_points_in_voxel = cfg['max_points_in_voxel']
+        self.max_voxel_num = [cfg['max_voxel_num'], cfg['max_voxel_num']] if isinstance(cfg['max_voxel_num'], int) else cfg['max_voxel_num']
 
         self.double_flip = cfg.get('double_flip', False)
 
@@ -275,11 +275,11 @@ class AssignLabel(object):
     def __init__(self, **kwargs):
         """Return CenterNet training labels like heatmap, height, offset"""
         assigner_cfg = kwargs["cfg"]
-        self.out_size_factor = assigner_cfg.out_size_factor
-        self.tasks = assigner_cfg.target_assigner.tasks
-        self.gaussian_overlap = assigner_cfg.gaussian_overlap
-        self._max_objs = assigner_cfg.max_objs
-        self._min_radius = assigner_cfg.min_radius
+        self.out_size_factor = assigner_cfg['out_size_factor']
+        self.tasks = assigner_cfg['target_assigner']['tasks']
+        self.gaussian_overlap = assigner_cfg['gaussian_overlap']
+        self._max_objs = assigner_cfg['max_objs']
+        self._min_radius = assigner_cfg['min_radius']
         self.cfg = assigner_cfg
 
     def __call__(self, res, info):
@@ -359,7 +359,7 @@ class AssignLabel(object):
                 hm = np.zeros((len(class_names_by_task[idx]), feature_map_size[1], feature_map_size[0]),
                               dtype=np.float32)
 
-                if res['type'] == 'NuScenesDataset':
+                if res['type'] == 'NuScenesDat  aset':
                     # [reg, hei, dim, vx, vy, rots, rotc]
                     anno_box = np.zeros((max_objs, 10), dtype=np.float32)
                 elif res['type'] == 'WaymoDataset':

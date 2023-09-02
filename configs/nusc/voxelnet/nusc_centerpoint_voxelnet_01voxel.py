@@ -30,15 +30,15 @@ model = dict(
     backbone=dict(
         type="SpMiddleResNetFHD", num_input_features=5, ds_factor=8
     ),
-    neck=dict(
-        type="RPN",
-        layer_nums=[5, 5],
-        ds_layer_strides=[1, 2],
-        ds_num_filters=[128, 256],
-        us_layer_strides=[1, 2],
-        us_num_filters=[256, 256],
-        num_input_features=256,
-        logger=logging.getLogger("RPN"),
+        neck=dict(
+            type="RPN",
+            layer_nums=[5, 5],
+            ds_layer_strides=[1, 2],
+            ds_num_filters=[128, 256],
+            us_layer_strides=[1, 2],
+            us_num_filters=[256, 256],
+            num_input_features=256,
+            logger=logging.getLogger("RPN"),
     ),
     bbox_head=dict(
         type="CenterHead",

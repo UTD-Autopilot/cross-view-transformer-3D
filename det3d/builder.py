@@ -203,13 +203,13 @@ def _create_learning_rate_scheduler(optimizer, learning_rate_config, total_step)
 
 def build_dbsampler(cfg, logger=None):
     logger = logging.getLogger("build_dbsampler")
-    prepors = [build_db_preprocess(c, logger=logger) for c in cfg.db_prep_steps]
+    prepors = [build_db_preprocess(c, logger=logger) for c in cfg['db_prep_steps']]
     db_prepor = DataBasePreprocessor(prepors)
-    rate = cfg.rate
-    grot_range = cfg.global_random_rotation_range_per_object
-    groups = cfg.sample_groups
+    rate = cfg['rate']
+    grot_range = cfg['global_random_rotation_range_per_object']
+    groups = cfg['sample_groups']
     # groups = [dict(g.name_to_max_num) for g in groups]
-    info_path = cfg.db_info_path
+    info_path = cfg['db_info_path']
     with open(info_path, "rb") as f:
         db_infos = pickle.load(f)
     grot_range = list(grot_range)

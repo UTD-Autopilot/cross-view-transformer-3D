@@ -1,0 +1,2 @@
+2023-08-31 01:47:16,563 - INFO - Start running, host: dxa230028@pdml7, work_dir: /home/dxa230028/Documents/cross-view-transformer-3D/work_dirs/nusc_cvt
+2023-08-31 01:47:16,563 - INFO - workflow: [('train', 1)], max: 20 epochs

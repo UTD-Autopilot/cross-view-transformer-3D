@@ -20,7 +20,7 @@ class ConfigDict(Dict):
             ex = AttributeError(
                 "'{}' object has no attribute '{}'".format(
                     self.__class__.__name__, name
-                )
+                ) 
             )
         except Exception as e:
             ex = e

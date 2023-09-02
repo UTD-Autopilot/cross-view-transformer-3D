@@ -63,7 +63,6 @@ assigner = dict(
     min_radius=2,
 )
 
-
 train_cfg = dict(assigner=assigner)
 
 test_cfg = dict(

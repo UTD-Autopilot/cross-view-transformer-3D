@@ -1,0 +1,9 @@
+# ninja log v5
+1	16637	1692564302585270509	/home/dxa230028/Documents/cross-view-transformer-3D/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_nms.o	19927c5e638e65b9
+1	16994	1692564302945270507	/home/dxa230028/Documents/cross-view-transformer-3D/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_nms_api.o	1676193b0b8e93b0
+0	17102	1692564303048603840	/home/dxa230028/Documents/cross-view-transformer-3D/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_cpu.o	26b8485f752c3491
+6	1465	1692564898528597986	/home/dxa230028/Documents/cross-view-transformer-3D/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_nms_kernel.o	1b7eef684a8348f6
+7	1476	1692569325358554418	/home/dxa230028/Documents/cross-view-transformer-3D/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_nms_kernel.o	a43c7226ee0c4349
+7	17792	1692992502701070410	/home/dxa230028/Documents/cross-view-transformer-3D/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_nms.o	5096026e5569f16e
+7	17878	1692992502784403742	/home/dxa230028/Documents/cross-view-transformer-3D/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_cpu.o	df311e4e33a9326a
+7	17974	1692992502877737075	/home/dxa230028/Documents/cross-view-transformer-3D/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_nms_api.o	43bcdb0711f50fe0

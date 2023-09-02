@@ -11,8 +11,8 @@ from det3d.torchie.trainer import load_checkpoint
 class SingleStageDetector(BaseDetector):
     def __init__(
         self,
-        reader,
         backbone,
+        reader=None, 
         neck=None,
         bbox_head=None,
         train_cfg=None,
@@ -20,7 +20,8 @@ class SingleStageDetector(BaseDetector):
         pretrained=None,
     ):
         super(SingleStageDetector, self).__init__()
-        self.reader = builder.build_reader(reader)
+        if reader is not None:
+            self.reader = builder.build_reader(reader)
         self.backbone = builder.build_backbone(backbone)
         if neck is not None:
             self.neck = builder.build_neck(neck)

@@ -5,6 +5,7 @@ from .formating import Reformat
 from .loading import *
 from .test_aug import DoubleFlip
 from .preprocess import Preprocess, Voxelization
+from .load_camera_data import LoadDataTransform
 
 __all__ = [
     "Compose",
@@ -21,5 +22,6 @@ __all__ = [
     "Preprocess",
     "Voxelization",
     "AssignTarget",
-    "AssignLabel"
+    "AssignLabel", 
+    "LoadDataTransform"
 ]
